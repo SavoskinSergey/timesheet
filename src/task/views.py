@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from .models import Task
 
-def index(req):
-    pass
+def home(request):
+    qs = Task.objects.all()
+    context = {'page_obj': qs}
+    return render(request, 'task/home.html', context)
 """
 # Create your views here.
 
